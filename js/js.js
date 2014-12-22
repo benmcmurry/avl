@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+	
+	
 	if (id !== 0) {
 		updateText();
 	}
@@ -21,7 +24,9 @@ $(document).ready(function() {
 	
 	//add new passage to database
 	$(document).on("click", "#add_passage", function() {
-		addToDB($("#text_title").html(), $("#user_text").html());
+		user_text = $("#user_text").html();
+		
+		addToDB($("#text_title").html(), user_text);
 		
 	});
 	

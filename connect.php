@@ -10,11 +10,10 @@ $whitelist = array(
 if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
     $host="localhost";
 } else {
-	$host="box680.bluehost.com";
+	$host="127.0.0.1";
 }
 
 	$user="benmcmur_avl";
-		
 		$password="elcavl";
 		$database="benmcmur_avl";
 	$db = new mysqli($host, $user, $password, $database);
