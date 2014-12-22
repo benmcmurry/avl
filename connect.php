@@ -2,8 +2,19 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+$whitelist = array(
+    '127.0.0.1',
+    '::1'
+);
+
+if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
+    $host="localhost";
+} else {
+	$host="box680.bluehost.com";
+}
+
 	$user="benmcmur_avl";
-		$host="localhost";
+		
 		$password="elcavl";
 		$database="benmcmur_avl";
 	$db = new mysqli($host, $user, $password, $database);
