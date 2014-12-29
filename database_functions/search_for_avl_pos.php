@@ -12,5 +12,9 @@ if(!$result = $db->query($query)){
 while($row = $result->fetch_assoc()){
     echo "<div class='pos ".$row['pos']."'>".$row['word'].".".$row['pos']."</div>";
 }   
+
+// $result->free(); //free results
+
+$db->close(); //close database
 ?>
 <div class='pos none' id='none'>none</div>

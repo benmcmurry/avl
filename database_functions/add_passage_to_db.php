@@ -35,7 +35,8 @@ if(!$result = $db->query($query)){
     
     if($result->num_rows > 0) {; //number of repeats
     	while ($results = $result->fetch_assoc()) {
-				$words[$key] = "<span class='possible_avl'>".$word_clean."</span>";
+	    		if ($results['multiple_pos'] == 0) {$words[$key] = "<span class='avl'>".$word_clean.".".$results['pos']."</span>";}
+				else {$words[$key] = "<span class='possible_avl'>".$word_clean."</span>";}
 			}
     }
     
@@ -65,7 +66,6 @@ if($db->query($query) === false) {
 
 
 echo $db->insert_id;
-
 
 
 

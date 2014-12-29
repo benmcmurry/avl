@@ -7,7 +7,7 @@ if(!$result = $db->query($query)){
 }   
 
 
-// $result->free(); //free results
+$result->free(); //free results
 
 $db->close(); //close database
 ?>
