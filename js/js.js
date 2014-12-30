@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-	
-	
 	if (id !== 0) {
+		console.log(id);
 		updateText();
 	}
 	
@@ -10,6 +9,10 @@ $(document).ready(function() {
   
 		if (e.keyCode == 27) { dismissPopup();dismissVocabPopup(); }   // esc
 	});
+	$(document).on("click", "#signOut", function(event){
+			window.location.href = "logoff.php";
+		});
+	
 	$(document).on("click", "#new_folder, #edit_passage", function() {alert("Feature not yet ready.");});
 	$(document).on("click", "#cancel, #faded_background", function() {dismissPopup()});
 	$(document).on("click", "#header, #passages, #data, #footer", function() {dismissVocabPopup()});
@@ -49,25 +52,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	// select passage
-	/*
-$(document).on("click", ".passages", function() {
-		passageID = this.id;
-		$("#content").load("load_passage.php");
-		$.ajax({ 
-	
-			type: "POST",   
-			url: "load_passage.php",   
-			dataType: "html",
-			data: "id="+passageID,
-			success : function(phpfile)
-			{
-				$("#content").html(phpfile);
-				
-			}
-		});
-	});
-*/
+
 	
 	
 	//check words

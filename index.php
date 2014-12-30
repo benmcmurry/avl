@@ -6,10 +6,12 @@
 	<meta name="description" content="" />
   	<meta name="keywords" content="" />
 	<meta name="robots" content="" />
+	<script>
+		
+
+</script>
 </head>
 <body>
-	<a href="process1.php">Process 1</a>
-	<a href="process2.php">Process 2</a>
-	<a href="list1.php">List 1</a>
+<a href="avl.php">Academic Vocabulary List Manual Tagger and Analyzer</a>	
 </body>
 </html>

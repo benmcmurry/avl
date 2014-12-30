@@ -6,6 +6,17 @@ body {
 	min-width: 1200px;
 }
 
+#loginWindow {
+	width: 200px;
+	box-shadow: 0px 0px 30px black;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 25px;
+	text-align: center;
+	margin-top: 100px;
+	border-radius: 10px;
+}
+
 div#wrapper {
 	width: 1200px;
 	margin-right:auto;
@@ -40,19 +51,64 @@ header#header {
 	
 	background-color:white;
 	/* width: 100%; */
-	padding:15px;
-	line-height: 30px;
+	/* padding:15px; */
+	height: 60px;
 	border-bottom: grey solid 1px;
 	
 }
 
 h1 {
-	display:block;
+	display:inline-block;
 	color: #343493;
 	font-family: Georgia;
-	padding:0px;
+	padding:15px;
 	margin:0px;
+	line-height: 30px;
+	}
+
+#login {
+	float: right;	
+	height: 60px; 
+	overflow: hidden;
+	/* margin-top: -15px; */
+	padding: 0px;
+	
 }
+#column1 {
+	font-family: sans-serif;
+	height: 60px;
+	float: left;
+	padding: 0px;
+}
+#name {
+	font-family: sans-serif;
+	line-height: 20px;
+	padding: 3px;
+	margin: 5px 3px 3px 3px;
+}
+
+#signOut {
+	
+	border-radius: 8px;
+	padding: 3px;
+	margin: 3px;
+}
+
+#image {
+	
+	float:left;
+	overflow: hidden;
+	height: 50px;
+	padding:5px;
+}
+
+#image img {
+	height: 50px;
+	border-radius: 25px;
+/* 	margin: 5px; */	
+}
+
+
 
 aside#passages {
 	float:left;

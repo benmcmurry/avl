@@ -1,12 +1,13 @@
 <?
 include_once("connect.php");
+include_once("authenticate.php");
+$user_id = $_SESSION['user_id'];
 
 if(isset($_GET['id']))
 {
      $id = $_GET['id'];
  } else {$id=0;}
- session_start();
- $_SESSION["id"] = $id;
+
 ?>
 
 
@@ -19,6 +20,8 @@ if(isset($_GET['id']))
   	<meta name="keywords" content="" />
 	<meta name="robots" content="" />
 	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+
 	<script type="text/javascript" src="js/jquery.js">
 	</script>
 	<script type="text/javascript" src="js/jquery-ui.js">
@@ -33,6 +36,13 @@ if(isset($_GET['id']))
 <div id="wrapper">
 <header id="header">
 	<h1>AVLMaT</h1>
+	<div id="login">
+		<div id="column1">
+			<div id="name"><? echo $_SESSION['name']; ?></div>
+			<div id="signOut" class="button">Sign Out</div>
+		</div>
+		<div id="image"><img src="<? echo $_SESSION['image']; ?>" /></div>
+	</div>
 </header>
 
 <aside id="passages">
@@ -40,7 +50,7 @@ if(isset($_GET['id']))
 	<div class="button" id="new_passage">Add Passage</div>
 	<div id="passage_list">
 		<?
-			$query = "Select * from Passages where active=1 order by title ASC ";
+			$query = "Select * from Passages where active=1 and owner='$user_id' order by title ASC ";
 			if(!$result = $db->query($query)){
 				die('There was an error running the query [' . $db->error . ']');
 			} 
