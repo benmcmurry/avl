@@ -19,10 +19,14 @@
 	var name;
 	var image;
 	var profile;
+	var ref;
 	var i=1;	
 	function signinCallback(authResult) {
-		if (i==1) {
+		
+					
 			if (authResult['status']['signed_in']) {
+				
+// 				console.log(authResult['status']['method']);
 				 gapi.client.load('plus','v1', function(){
 				 	var request = gapi.client.plus.people.get({'userId': 'me'});
 			 		request.execute(function(resp) {
@@ -30,18 +34,18 @@
 						name = resp.displayName;
 						image = resp.image.url;
 						profile = resp.url;
+					
 					});
 		
 				});
 			}
-		}
-		else {
-			ref = "<? echo $_SERVER['HTTP_REFERER']; ?>";
+		
+		if(user_id) {
 			$.ajax({
 				type: "POST",
 				url: "set_session.php",
 				dataType: "html",
-				data: {user_id: user_id, name: name, image: image, profile: profile, ref: ref},
+				data: {user_id: user_id, name: name, image: image, profile: profile},
 				success: function(phpfile) { 
 				  $("#temp").html(phpfile);	
 				}
@@ -68,7 +72,8 @@
     data-scope="https://www.googleapis.com/auth/plus.login">
   </span>
 </span>
-	</div>
 	<div id="temp"></div>
+	</div>
+	
 </body>
 </html>

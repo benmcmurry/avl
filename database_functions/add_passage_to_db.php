@@ -1,6 +1,7 @@
 <?
 include_once('../connect.php');
-
+include_once('../authenticate.php');
+$user_id = $_SESSION['user_id'];
 
 $title = strip_tags($_POST['title']);
 $user_text = $_POST['user_text'];
@@ -56,7 +57,7 @@ $replace_terms = array("\n\r<span class='word'>", "\n\r<span class='possible_avl
 $analyzed_text = str_replace($search_terms, $replace_terms, $analyzed_text);
 */
 $analyzed_text = $db->real_escape_string($analyzed_text);
-$query = "Insert into Passages (title, passage, active) Values ('$title', '$analyzed_text', '1')";
+$query = "Insert into Passages (title, passage, active, owner) Values ('$title', '$analyzed_text', '1', '$user_id')";
 // $run = mysql_query($query) or die(mysql_error());
 
 if($db->query($query) === false) {
