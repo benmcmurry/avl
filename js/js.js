@@ -12,10 +12,15 @@ $(document).ready(function() {
 	$(document).on("click", "#signOut", function(event){
 			window.location.href = "logoff.php";
 		});
-	
-	$(document).on("click", "#new_folder, #edit_passage", function() {alert("Feature not yet ready.");});
+	$(document).on("click", "#new_folder", function() {
+		
+	});
+	$(document).on("click", "#edit_passage", function() {alert("Feature not yet ready.");});
 	$(document).on("click", "#cancel, #faded_background", function() {dismissPopup()});
-	$(document).on("click", "#header, #passages, #data, #footer", function() {dismissVocabPopup()});
+	$(document).on("click", "body", function(event) {
+		if ($(event.target).is("span")) {}
+		else {dismissVocabPopup();}
+	});
 	// new passage dialog
 		$(document).on("click", "#new_passage", function() {
 			add_button_position = $("#new_passage").position();
@@ -107,7 +112,6 @@ $(document).ready(function() {
 function showPopup() {
 	body_h = $("body").height();
 	body_w = $("body").width();
-	console.log(body_w);
 	$("#faded_background").css({
 		"height": body_h,
 		"width": body_w

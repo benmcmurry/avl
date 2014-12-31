@@ -1,0 +1,31 @@
+<?
+include_once("connect.php");
+session_start();
+$_SESSION['user_id'] = $_POST['user_id'];
+$user_id = $_POST['user_id'];
+$_SESSION['name'] = $_POST['name'];
+$name = $_POST['name'];
+$_SESSION['image'] = $_POST['image'];
+$image = $_POST['image'];
+$_SESSION['profile'] = $_POST['profile'];
+$profile = $_POST['profile'];
+$ref = $_SESSION['ref'];
+
+$query = "Select * from Users where user_id='$user_id' order by title ASC ";
+			if(!$result = $db->query($query)){
+				die('There was an error running the query [' . $db->error . ']');
+			} 
+			if($result->num_rows > 0)
+				{while($row = $result->fetch_assoc()){
+					
+					$add_user = "Insert into Users (user_id, name, image, profile) values ('$user_id', '$name', '$image', 'profile')";
+			if(!$result_add_user = $db->query($add_user)){
+				die('There was an error running the query [' . $db->error . ']');		
+			$result_add_user->free();
+			}
+			}  
+			$result->free(); //free results
+
+echo  "<meta HTTP-EQUIV='REFRESH' content='0; url=$ref'>";
+echo "If you are not automatically re-directed, <a href='$ref'>click here</a>.";
+?>
